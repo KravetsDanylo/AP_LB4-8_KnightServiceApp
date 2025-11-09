@@ -1,5 +1,7 @@
 package commands;
 
+import services.KnightService;
+
 public class ShowKnightEquipmentCommand implements Command {
     private KnightService service;
 
@@ -12,4 +14,8 @@ public class ShowKnightEquipmentCommand implements Command {
         service.showKnightEquipment();
     }
 
+    @Override
+    public String getDescription() {
+        return "Show knight equipment";
+    }
 }

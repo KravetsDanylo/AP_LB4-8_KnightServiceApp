@@ -1,6 +1,8 @@
 package commands;
 
-public class ShowArsenalCommand implements Command{
+import services.KnightService;
+
+public class ShowArsenalCommand implements Command {
     KnightService service;
 
     public ShowArsenalCommand(KnightService service) {
@@ -8,7 +10,12 @@ public class ShowArsenalCommand implements Command{
     }
 
     @Override
-    public void execute(){
+    public void execute() {
         service.showArsenal();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Show arsenal";
     }
 }

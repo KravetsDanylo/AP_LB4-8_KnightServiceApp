@@ -1,6 +1,8 @@
 package commands;
 
-public class AddItemToArsenalCommand implements Command{
+import services.KnightService;
+
+public class AddItemToArsenalCommand implements Command {
     private KnightService service;
 
     public AddItemToArsenalCommand(KnightService service) {
@@ -10,5 +12,10 @@ public class AddItemToArsenalCommand implements Command{
     @Override
     public void execute() {
         service.addNewItemToArsenal();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Add item to arsenal";
     }
 }

@@ -1,14 +1,21 @@
 package commands;
 
-public class LoadToFileCommand implements Command{
-    KnightService service;
+import services.FileService;
 
-    public LoadToFileCommand(KnightService service) {
+public class LoadToFileCommand implements Command {
+    FileService service;
+
+    public LoadToFileCommand(FileService service) {
         this.service = service;
     }
 
     @Override
     public void execute() {
-        service.loadToFile();
+        service.saveInformationToFile();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Save Knight and Arsenal information to file";
     }
 }

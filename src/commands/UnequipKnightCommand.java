@@ -1,6 +1,8 @@
 package commands;
 
-public class UnequipKnightCommand implements Command{
+import services.KnightService;
+
+public class UnequipKnightCommand implements Command {
     private KnightService service;
 
     public UnequipKnightCommand(KnightService service) {
@@ -9,5 +11,11 @@ public class UnequipKnightCommand implements Command{
 
     @Override
     public void execute() {
-        service.unequipKnight();    }
+        service.unequipKnight();
+    }
+
+    @Override
+    public String getDescription() {
+        return "Unequip knight";
+    }
 }

@@ -1,21 +1,38 @@
 package equipment;
+
 import java.util.ArrayList;
 import java.util.List;
-import equipment.Ammunition;
+import java.io.Serial;
+import java.io.Serializable;
 
-public class Arsenal {
+public class Arsenal implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
     private List<Ammunition> availableItems;
 
     public Arsenal() {
         this.availableItems = new ArrayList<>();
     }
 
-    public List<Ammunition> getAvailableItems(){
-
-        return new ArrayList<>();
+    public List<Ammunition> getAvailableItems() {
+        return availableItems;
     }
-    public void addItem(Ammunition item){}
 
+    public void setAvailableItems(List<Ammunition> availableItems) {
+        this.availableItems = availableItems;
+    }
 
+    public void addItem(Ammunition item) {
+        if (item == null) {
+            throw new IllegalArgumentException("Invalid value");
+        }
+        availableItems.add(item);
+    }
 
+    public boolean removeItem(Ammunition item) {
+        if (item == null) {
+            return false;
+        }
+        return availableItems.remove(item);
+    }
 }
