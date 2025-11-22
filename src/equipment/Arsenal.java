@@ -22,11 +22,11 @@ public class Arsenal implements Serializable {
         this.availableItems = availableItems;
     }
 
-    public void addItem(Ammunition item) {
-        if (item == null) {
-            throw new IllegalArgumentException("Invalid value");
+    public boolean addItem(Ammunition item) {
+        if(item == null){
+            throw new IllegalArgumentException("Item cannot be null");
         }
-        availableItems.add(item);
+        return availableItems.add(item);
     }
 
     public boolean removeItem(Ammunition item) {

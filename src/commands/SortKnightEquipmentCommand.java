@@ -1,5 +1,6 @@
 package commands;
 
+import equipment.Ammunition;
 import services.KnightService;
 
 public class SortKnightEquipmentCommand implements Command {
@@ -11,7 +12,16 @@ public class SortKnightEquipmentCommand implements Command {
 
     @Override
     public void execute() {
-        service.sortEquipmentByWeight();
+        System.out.println("---SORTED EQUIPMENT OF THE KNIGHT(BY WEIGHT)---");
+        boolean success = service.sortEquipmentByWeight();
+        if(!success){
+            System.out.println("Knight equipment is empty!");
+        }
+        else{
+            for (Ammunition ammunition : service.getKnightEquipment()) {
+                System.out.println(ammunition);
+            }
+        }
     }
 
     @Override

@@ -1,6 +1,9 @@
 package commands;
 
+import equipment.Ammunition;
 import services.KnightService;
+
+import java.util.List;
 
 public class ShowArsenalCommand implements Command {
     KnightService service;
@@ -11,7 +14,16 @@ public class ShowArsenalCommand implements Command {
 
     @Override
     public void execute() {
-        service.showArsenal();
+        System.out.println("---ARSENAL---");
+        List<Ammunition> items = service.getArsenal();
+        if (items.isEmpty()) {
+            System.out.println("Arsenal is empty. Firstly add equipments.");
+        } else {
+            for (Ammunition ammunition : items) {
+                System.out.println(ammunition);
+            }
+        }
+        System.out.println("---------------");
     }
 
     @Override

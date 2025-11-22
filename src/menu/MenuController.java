@@ -9,7 +9,11 @@ import commands.Command;
 
 public class MenuController {
     private Map<Integer, Command> commands = new HashMap<>();
-    private Scanner scanner = new Scanner(System.in);
+    private Scanner scanner;
+
+    public MenuController(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public void addCommand(int key, Command command) {
         commands.put(key, command);

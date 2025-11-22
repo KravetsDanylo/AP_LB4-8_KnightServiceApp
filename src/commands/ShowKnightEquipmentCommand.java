@@ -1,6 +1,9 @@
 package commands;
 
+import equipment.Ammunition;
 import services.KnightService;
+
+import java.util.List;
 
 public class ShowKnightEquipmentCommand implements Command {
     private KnightService service;
@@ -11,7 +14,15 @@ public class ShowKnightEquipmentCommand implements Command {
 
     @Override
     public void execute() {
-        service.showKnightEquipment();
+        System.out.println("---KNIGHT EQUIPMENT---");
+        List<Ammunition> knightEquipment = service.getKnightEquipment();
+        if (knightEquipment.isEmpty()) {
+            System.out.println("Knight Equipment is empty! Equip the knight.");
+        } else {
+            for (Ammunition ammunition : knightEquipment) {
+                System.out.println(ammunition);
+            }
+        }
     }
 
     @Override
